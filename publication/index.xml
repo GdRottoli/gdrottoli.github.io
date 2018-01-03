@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on Giovanni Daián Rottoli</title>
+    <link>gdrottoli.github.io/publication/</link>
+    <description>Recent content in Publications on Giovanni Daián Rottoli</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="gdrottoli.github.io/publication/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Knowledge Discovery Process for Description of Spatially Referenced Clusters</title>
+      <link>gdrottoli.github.io/publication/seke2017/</link>
+      <pubDate>Mon, 03 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>gdrottoli.github.io/publication/seke2017/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Co-location Rules Discovery Process Focused on Reference Spatial Features Using Decision Tree Learning</title>
+      <link>gdrottoli.github.io/publication/ieaaie2017/</link>
+      <pubDate>Tue, 27 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>gdrottoli.github.io/publication/ieaaie2017/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Proceso de Descubrimiento de Reglas de Caracterización de Grupos Espacialmente Referenciados</title>
+      <link>gdrottoli.github.io/publication/cacic2016_clustering/</link>
+      <pubDate>Fri, 07 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>gdrottoli.github.io/publication/cacic2016_clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Proceso de descubrimiento de patrones de co-localización alrededor de tipos de eventos de referencia</title>
+      <link>gdrottoli.github.io/publication/cacic2016_colocation/</link>
+      <pubDate>Fri, 07 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>gdrottoli.github.io/publication/cacic2016_colocation/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
