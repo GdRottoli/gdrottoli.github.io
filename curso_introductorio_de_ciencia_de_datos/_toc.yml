@@ -1,0 +1,19 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: general.md
+parts:
+  - caption: Clases
+    chapters:
+      - file: intro.ipynb
+      - file: crispdm.ipynb
+      - file: conocimiento.ipynb
+#      - file: preparacion
+#      - file: supervisado
+#      - file: nosupervisado
+#      - file: evaluacion
+#      - file: avanzado
+  - caption: Actividades
+    chapters:
+      - file: activity-introduction.md
