@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clase 3: Conocimiento de los datos &#8212; Introducción a la Ciencia de Datos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'conocimiento';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introducción a la Ciencia de Datos" href="activity-introduction.html" />
+    <link rel="prev" title="Clase 2: CRISP-DM" href="crispdm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="general.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Introducción a la Ciencia de Datos - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Introducción a la Ciencia de Datos - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="general.html">
+                    Introducción a la Ciencia de Datos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Clases</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Clase 1: Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crispdm.html">Clase 2: CRISP-DM</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Clase 3: Conocimiento de los datos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Actividades</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="activity-introduction.html">Introducción a la Ciencia de Datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fconocimiento.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/conocimiento.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Clase 3: Conocimiento de los datos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recordemos">Recordemos…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Recordemos…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-estructurados-vs-no-estructurados">Datos estructurados vs no-estructurados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Datos estructurados vs no-estructurados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-no-dependientes-vs-datos-dependientes">Datos No-Dependientes Vs Datos Dependientes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Datos No-Dependientes Vs Datos Dependientes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes-de-datos">Fuentes de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archivos">Archivos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bases-de-datos">Bases de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql">SQL</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#no-sql">NO-SQL</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repositorios-digitales">Repositorios digitales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paginas-web-y-redes-sociales">Páginas web y redes sociales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-de-los-datos">Descripción de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-atributos">Tipos de atributos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segun-su-naturaleza">Según su naturaleza</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantitativos">Cuantitativos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cualitativos">Cualitativos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segun-su-codificacion">Según su codificación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-numericos">Datos numéricos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-categoricos">Datos categóricos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-binarios">Datos Binarios</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-ordinales">Datos Ordinales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-de-los-datos">Exploración de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptores-estadisticos">Descriptores estadísticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-tendencia-central">Medidas de tendencia central</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-dispersion">Medidas de dispersión</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-forma">Medidas de forma</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-datos">Visualización de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas">Ventajas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desventajas">Desventajas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-graficos">Tipos de gráficos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigos-visuales">Códigos visuales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calidad-de-los-datos">Calidad de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#completitud">Completitud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporalidad">Temporalidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validez">Validez</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integridad">Integridad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consistencia">Consistencia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia-adicional">Bibliografía adicional</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="clase-3-conocimiento-de-los-datos">
+<h1>Clase 3: Conocimiento de los datos<a class="headerlink" href="#clase-3-conocimiento-de-los-datos" title="Link to this heading">#</a></h1>
+<p>Giovanni D. Rottoli, PhD.</p>
+<section id="recordemos">
+<h2>Recordemos…<a class="headerlink" href="#recordemos" title="Link to this heading">#</a></h2>
+<p><img alt="crispdm.png" src="_images/crispdm.png" /></p>
+</section>
+<section id="id1">
+<h2>Recordemos…<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p><img alt="entendimiento_datos.png" src="_images/entendimiento_datos.png" /></p>
+</section>
+<section id="datos">
+<h2>Datos<a class="headerlink" href="#datos" title="Link to this heading">#</a></h2>
+<section id="datos-estructurados-vs-no-estructurados">
+<h3>Datos estructurados vs no-estructurados<a class="headerlink" href="#datos-estructurados-vs-no-estructurados" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Un conjunto de datos es estructurado si poseen un esquema predefinido.</p></li>
+<li><p>Todas las entidades de la base de datos poseen valores para un mismo conjunto de atributos.</p></li>
+<li><p>Se pueden relacionar unas entidades con otras mediante atributos relacionales.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Datos estructurados vs no-estructurados<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Un conjunto de datos no estructurado, no posee un modelo o esquema de datos pre-establecido.</p></li>
+<li><p>Pueden ser de varios tipos: texto, imágenes, video, audio, correos electrónicos, etc.</p></li>
+<li><p>Por lo general, los algoritmos de minería de datos requieren cierta estructura, por lo que se deben preprocesar para extraer características y descriptores.</p></li>
+</ul>
+</section>
+<section id="datos-no-dependientes-vs-datos-dependientes">
+<h3>Datos No-Dependientes Vs Datos Dependientes<a class="headerlink" href="#datos-no-dependientes-vs-datos-dependientes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Cada entidad de la base de datos posee un conjunto de atributos que la describe.</p></li>
+<li><p>Son datos, generalmente, estructurados.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Datos No-Dependientes Vs Datos Dependientes<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Cada entidad de la base de datos posee dos tipos de atributos:</p>
+<ul class="simple">
+<li><p>Atributos de comportamiento, que describen a la entidad en si, tal como en una base de datos no-dependiente.</p></li>
+<li><p>Atributos contextuales, que permiten contextualizar los valores de los atributos de comportamiento.</p></li>
+</ul>
+<p>Por ejemplo, datos espaciales, datos temporales, datos espaciotemporales, imágenes, textos, audios, etc.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="fuentes-de-datos">
+<h2>Fuentes de datos<a class="headerlink" href="#fuentes-de-datos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Las fuentes de datos son de lo más variadas.</p></li>
+<li><p>Muchas son bien conocidas y extraer los datos de dicha fuente resulta trivial</p></li>
+<li><p>Otras requieren de procesamiento adicional.</p></li>
+</ul>
+<section id="archivos">
+<h3>Archivos<a class="headerlink" href="#archivos" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>CSV, TSV, etc.</p></li>
+<li><p>Planillas de cálculo (Excel),</p></li>
+<li><p>Código fuente,</p></li>
+<li><p>Texto en PDF,</p></li>
+<li><p>Formularios,</p></li>
+<li><p>Imágenes,</p></li>
+<li><p>Archivos de audio,</p></li>
+<li><p>archivos de video.</p></li>
+<li><p>etc…etc…etc…</p></li>
+</ul>
+</section>
+<section id="bases-de-datos">
+<h3>Bases de datos<a class="headerlink" href="#bases-de-datos" title="Link to this heading">#</a></h3>
+<p>Las bases de datos son almacenes electrónicos de datos que permiten realizar gestionar estos datos de forma más eficiente mediante distintas estrategias, como el uso de índices de consulta, por ejemplo.</p>
+<section id="sql">
+<h4>SQL<a class="headerlink" href="#sql" title="Link to this heading">#</a></h4>
+<p>PostgreSQL, MYSQL, etc.</p>
+</section>
+<section id="no-sql">
+<h4>NO-SQL<a class="headerlink" href="#no-sql" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Documentales (MongoDB)</p></li>
+<li><p>Grafos (Neo4J)</p></li>
+<li><p>Clave-valor (Redis)</p></li>
+<li><p>Columnares (Cassandra)</p></li>
+<li><p>Vectoriales (Qdrant)</p></li>
+<li><p>Etc. etc. etc.</p></li>
+</ul>
+</section>
+</section>
+<section id="repositorios-digitales">
+<h3>Repositorios digitales<a class="headerlink" href="#repositorios-digitales" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Repositorios de imágenes</p></li>
+<li><p>Repositorios de audio</p></li>
+<li><p>Repositorios de video</p></li>
+</ul>
+</section>
+<section id="paginas-web-y-redes-sociales">
+<h3>Páginas web y redes sociales<a class="headerlink" href="#paginas-web-y-redes-sociales" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Utilizando APIS</p></li>
+<li><p>Scrapping</p></li>
+</ul>
+</section>
+</section>
+<section id="descripcion-de-los-datos">
+<h2>Descripción de los datos<a class="headerlink" href="#descripcion-de-los-datos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Para comprender mejor los datos con los que trabajamos, debemos describirlos.</p></li>
+<li><p>No solo se deben describir los <strong>orígenes</strong> de los datos, sino también:</p>
+<ul>
+<li><p><strong>Tipo</strong> de datos</p></li>
+<li><p><strong>Composición</strong> de la base de datos (Cantidad de entidades, por ejemplo)</p></li>
+<li><p><strong>Atributos</strong></p>
+<ul>
+<li><p>Tipos, valores, distribución, relaciones.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="tipos-de-atributos">
+<h3>Tipos de atributos<a class="headerlink" href="#tipos-de-atributos" title="Link to this heading">#</a></h3>
+<p>Al igual que con los datos, podemos utilizar varias categorizaciones.</p>
+<ul class="simple">
+<li><p>Por ejemplo, podemos clasificarlos según su rol: atributos de comportamiento y atributos contextuales.</p></li>
+<li><p>O según la naturaleza de sus datos: cuantitativos vs cualitativos.</p></li>
+<li><p>O según su codificación: numéricos vs categóricos.</p></li>
+</ul>
+</section>
+<section id="segun-su-naturaleza">
+<h3>Según su naturaleza<a class="headerlink" href="#segun-su-naturaleza" title="Link to this heading">#</a></h3>
+<section id="cuantitativos">
+<h4>Cuantitativos<a class="headerlink" href="#cuantitativos" title="Link to this heading">#</a></h4>
+<p>Expresan una cantidad y, generalmente, se codifican mediante números naturales o reales.
+Por ejemplo:</p>
+<ul class="simple">
+<li><p>Edad</p></li>
+<li><p>Altura</p></li>
+<li><p>Peso</p></li>
+<li><p>Precio</p></li>
+</ul>
+</section>
+<section id="cualitativos">
+<h4>Cualitativos<a class="headerlink" href="#cualitativos" title="Link to this heading">#</a></h4>
+<p>Expresan una cualidad de la entidad, y se codifican, generalmente, mediante etiquetas.
+Por ejemplo:</p>
+<ul class="simple">
+<li><p>Color</p></li>
+<li><p>Estado civil</p></li>
+<li><p>Nacionalidad</p></li>
+</ul>
+</section>
+</section>
+<section id="segun-su-codificacion">
+<h3>Según su codificación<a class="headerlink" href="#segun-su-codificacion" title="Link to this heading">#</a></h3>
+<section id="datos-numericos">
+<h4>Datos numéricos<a class="headerlink" href="#datos-numericos" title="Link to this heading">#</a></h4>
+<p>Toma valores de conjuntos numéricos discretos o contínuos, finitos o infinitos, como los Reales, los Naturales, los Enteros, valores booleanos, etc.</p>
+</section>
+<section id="datos-categoricos">
+<h4>Datos categóricos<a class="headerlink" href="#datos-categoricos" title="Link to this heading">#</a></h4>
+<p>Toma valores de conjuntos finitos de categorías, como conjunto de estados civiles, conjunto de nacionalidades, Verdadero o Falso, etc.</p>
+</section>
+<section id="datos-binarios">
+<h4>Datos Binarios<a class="headerlink" href="#datos-binarios" title="Link to this heading">#</a></h4>
+<p>Toman valores de un conjunto de cardinalidad 2:</p>
+<ul class="simple">
+<li><p>Simétricos: Si ambos valores tienen el mismo peso o relevancia: $<span class="math notranslate nohighlight">\(\{\text{Argentino}, \text{Extranjero} \}\)</span>$</p></li>
+<li><p>Asimétricos: Si uno de los valores tiene más relevancia que el otro en el dominio del problema:  $<span class="math notranslate nohighlight">\(\{\text{Seropositivo}, \text{Seronegativo} \}\)</span>$</p></li>
+</ul>
+<p>Son generalmente categóricos, aunque se los puede representar de forma numérica con los valores 0 y 1.</p>
+</section>
+</section>
+<section id="datos-ordinales">
+<h3>Datos Ordinales<a class="headerlink" href="#datos-ordinales" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Toman valores de un conjunto ordenado y son, generalmente, categóricos, aunque se los puede codificar de forma numérica.</p></li>
+<li><p>Por ejemplo: $<span class="math notranslate nohighlight">\( \{\text{Infante}, \text{Adolescente}, \text{Adulto}, \text{Anciano} \} \)</span>$</p></li>
+<li><p>La distancia entre cada par de valores se puede calcular a partir del órden.</p></li>
+<li><p>Se pueden obtener de discretizar atributos contínuos (Edad, por ejemplo.)</p></li>
+<li><p>Se deben tratar como valores cualitativos aunque su codificación sea numérica (No se puede calcular el promedio, por ejemplo.)</p></li>
+</ul>
+</section>
+</section>
+<section id="exploracion-de-los-datos">
+<h2>Exploración de los datos<a class="headerlink" href="#exploracion-de-los-datos" title="Link to this heading">#</a></h2>
+<p>La exploración de los datos busca determinar el comportamiento de estos atributos, para comprender cómo se distribuyen sus valores e identificar posibles tendencias.</p>
+<p>Por ejemplo, algunos algoritmos necesitan que los atributos que utilicemos no estén correlacionados, por lo que deberemos analizar esto.</p>
+<section id="descriptores-estadisticos">
+<h3>Descriptores estadísticos<a class="headerlink" href="#descriptores-estadisticos" title="Link to this heading">#</a></h3>
+<section id="medidas-de-tendencia-central">
+<h4>Medidas de tendencia central<a class="headerlink" href="#medidas-de-tendencia-central" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Promedio</strong>: Dado un conjunto de observaciones <span class="math notranslate nohighlight">\(D=X_1, X_2, \cdots , X_n\)</span>, el promedio es: <span class="math notranslate nohighlight">\( \bar{X} = \frac{ \sum X_i}{n} \)</span></p></li>
+<li><p><strong>Mediana</strong>: Es el valor que parte el conjunto de datos, ordenado, en dos partes de igual cardinalidad.</p></li>
+<li><p><strong>Moda</strong>: Valor más común o de mayor frecuencia en la base de datos.</p></li>
+</ul>
+<p><img alt="sesgos.png" src="_images/sesgos.png" /></p>
+</section>
+<section id="medidas-de-dispersion">
+<h4>Medidas de dispersión<a class="headerlink" href="#medidas-de-dispersion" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Varianza</strong>: $<span class="math notranslate nohighlight">\( \sigma^2 = \frac{1}{n} \sum(x_i - \bar{x})^2 \)</span>$</p></li>
+<li><p><strong>Desviación estandar</strong>: $<span class="math notranslate nohighlight">\( \sigma = \sqrt{\sigma^2} \)</span>$</p></li>
+<li><p><strong>Rango</strong>: $<span class="math notranslate nohighlight">\(Max(X) - Min(X) \)</span>$</p></li>
+<li><p><strong>Cuartiles</strong>: Dividen el rango en 4 partes de igual tamaño.</p></li>
+</ul>
+<p><img alt="3sigma.png" src="_images/3sigma.png" /></p>
+<p><img alt="rango.png" src="_images/rango.png" /></p>
+</section>
+<section id="medidas-de-forma">
+<h4>Medidas de forma<a class="headerlink" href="#medidas-de-forma" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Curtosis</strong>: Indica que tan apuntada o achatada se encuentra una distribución respecto a un comportamiento normal (distribución normal).</p></li>
+<li><p><strong>Asimetría</strong>: Mide el grado de asimetría de la distribución con respecto a la media.</p></li>
+</ul>
+<p><img alt="curtosis.png" src="_images/curtosis.png" /></p>
+</section>
+</section>
+</section>
+<section id="visualizacion-de-datos">
+<h2>Visualización de datos<a class="headerlink" href="#visualizacion-de-datos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Una visualización es cualquier tipo de presentación visual de los datos de una base de datos.</p></li>
+<li><p>Permiten comprender ciertas propiedades de los datos, como la distribución de valores de sus atributos o relaciones entre los mismos.</p></li>
+<li><p>Nos valoremos de la capacidad humana de detectar patrones de forma visual.</p></li>
+</ul>
+<p><img alt="simps.png" src="_images/simps.png" /></p>
+<section id="ventajas">
+<h3>Ventajas<a class="headerlink" href="#ventajas" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Podemos procesar información visualmente de forma muy rápida.</p></li>
+<li><p>Se puede compartir esta información de forma eficiente.</p></li>
+<li><p>Existe una ámplia variedad de gráficos para detectar distintos tipos de patrones o comportamientos.</p></li>
+</ul>
+</section>
+<section id="desventajas">
+<h3>Desventajas<a class="headerlink" href="#desventajas" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Las visualizaciones pueden funcionar bien para comprender fenómenos globales.</p></li>
+<li><p>Con muchos datos, se pueden esconder anomalías.</p></li>
+<li><p>Las conclusiones que obtenemos pueden estar sesgadas o ser incorrectas.</p></li>
+<li><p>Demasiados datos juntos pueden ocasionar problemas de interpretación.</p></li>
+</ul>
+</section>
+<section id="tipos-de-graficos">
+<h3>Tipos de gráficos<a class="headerlink" href="#tipos-de-graficos" title="Link to this heading">#</a></h3>
+<p><img alt="graficos.png" src="_images/graficos.png" /></p>
+<p><a class="reference external" href="https://www.slingshotapp.io/blog/9-best-data-visualization-examples">https://www.slingshotapp.io/blog/9-best-data-visualization-examples</a></p>
+<p><img alt="graficos2.png" src="_images/graficos2.png" /></p>
+</section>
+<section id="codigos-visuales">
+<h3>Códigos visuales<a class="headerlink" href="#codigos-visuales" title="Link to this heading">#</a></h3>
+<p><img alt="codigos.png" src="_images/codigos.png" /></p>
+<p><img alt="scatter_example_coding.png" src="_images/scatter_example_coding.png" /></p>
+<p><img alt="napoleon.png" src="_images/napoleon.png" /></p>
+</section>
+</section>
+<section id="calidad-de-los-datos">
+<h2>Calidad de los datos<a class="headerlink" href="#calidad-de-los-datos" title="Link to this heading">#</a></h2>
+<section id="completitud">
+<h3>Completitud<a class="headerlink" href="#completitud" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Se refiere a la proporción de datos que se encuentran perdidos en el conjunto de datos.</p></li>
+<li><p>Pueden existir filas, columnas, o celdas en blanco.</p></li>
+<li><p>En algunos casos los datos se pierden por problemas en el canal, o porque no se han recolectado, o porque la fuente se encuentra corrupta.</p></li>
+<li><p>En otros casos, la falta de datos puede ser un dato en si mismo.</p></li>
+</ul>
+</section>
+<section id="temporalidad">
+<h3>Temporalidad<a class="headerlink" href="#temporalidad" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Se refiere a la antigüedad de los datos.</p></li>
+<li><p>Datos desactualizados pueden no ser representativos de la realidad.</p></li>
+<li><p>No tiene sentido determinar cómo se comporta un virus con datos del 2000, si es un virus que muta constantemente.</p></li>
+<li><p>Datos complétos pero desactualizados pueden no ser útiles.</p></li>
+</ul>
+</section>
+<section id="validez">
+<h3>Validez<a class="headerlink" href="#validez" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Los datos son válidos si no siguen formatos, reglas o procesos adecuados para el problema a solucionar.</p></li>
+<li><p>Por ejemplo, la recolección de datos para un estudio clínico debe ser doble ciego.</p></li>
+<li><p>En algunos casos, la codificación de datos está realizada de forma inadecuada, y se necesita re-codificarlos.</p></li>
+<li><p>Los datos obtenidos de forma ilegal o de forma poco étic también pueden considerarse inválidos.</p></li>
+</ul>
+</section>
+<section id="integridad">
+<h3>Integridad<a class="headerlink" href="#integridad" title="Link to this heading">#</a></h3>
+<p>Integrity of data refers to the level at which the information is reliable and trustworthy. Is the data true and factual? For example, if your database has an email address assigned to a specific customer, and it turns out that the customer actually deleted that account years ago, then there would be an issue with data integrity as well as timeliness.</p>
+</section>
+<section id="consistencia">
+<h3>Consistencia<a class="headerlink" href="#consistencia" title="Link to this heading">#</a></h3>
+<p>Consistency of data is most often associated with analytics. It ensures that the source of the information collection is capturing the correct data based on the unique objectives of the department or company.</p>
+<p>For example, let’s say you have two similar pieces of information:</p>
+<p>the date on file for the opening of a customer’s account vs.</p>
+<p>the last time they logged into their account.</p>
+<p>The difference in these dates may provide valuable insights into the success rates of current or future marketing campaigns.</p>
+<p>Determining the overall quality of company data is a never-ending process. The most crucial components of effective data quality management are the identification and resolution of potential issues quickly and proactively.</p>
+</section>
+</section>
+<section id="bibliografia-adicional">
+<h2>Bibliografía adicional<a class="headerlink" href="#bibliografia-adicional" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Josep Ferrer (2023), Data Visualization: Theory and Techniques. KDnuggets. <a class="reference external" href="https://www.kdnuggets.com/data-visualization-theory-and-techniques">https://www.kdnuggets.com/data-visualization-theory-and-techniques</a></p></li>
+<li><p>Data Visualization Chart types. <a class="reference external" href="https://www.datylon.com/blog/types-of-charts-graphs-examples-data-visualization">https://www.datylon.com/blog/types-of-charts-graphs-examples-data-visualization</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="crispdm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Clase 2: CRISP-DM</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="activity-introduction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introducción a la Ciencia de Datos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recordemos">Recordemos…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Recordemos…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-estructurados-vs-no-estructurados">Datos estructurados vs no-estructurados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Datos estructurados vs no-estructurados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-no-dependientes-vs-datos-dependientes">Datos No-Dependientes Vs Datos Dependientes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Datos No-Dependientes Vs Datos Dependientes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes-de-datos">Fuentes de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archivos">Archivos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bases-de-datos">Bases de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sql">SQL</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#no-sql">NO-SQL</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repositorios-digitales">Repositorios digitales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paginas-web-y-redes-sociales">Páginas web y redes sociales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-de-los-datos">Descripción de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-atributos">Tipos de atributos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segun-su-naturaleza">Según su naturaleza</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantitativos">Cuantitativos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cualitativos">Cualitativos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segun-su-codificacion">Según su codificación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-numericos">Datos numéricos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-categoricos">Datos categóricos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-binarios">Datos Binarios</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-ordinales">Datos Ordinales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-de-los-datos">Exploración de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptores-estadisticos">Descriptores estadísticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-tendencia-central">Medidas de tendencia central</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-dispersion">Medidas de dispersión</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-forma">Medidas de forma</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-datos">Visualización de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas">Ventajas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desventajas">Desventajas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-graficos">Tipos de gráficos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#codigos-visuales">Códigos visuales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calidad-de-los-datos">Calidad de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#completitud">Completitud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temporalidad">Temporalidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validez">Validez</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integridad">Integridad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consistencia">Consistencia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia-adicional">Bibliografía adicional</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Rottoli, Giovanni D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

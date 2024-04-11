@@ -1,0 +1,842 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clase 1: Introducción &#8212; Introducción a la Ciencia de Datos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Clase 2: CRISP-DM" href="crispdm.html" />
+    <link rel="prev" title="Introducción a la Ciencia de Datos" href="general.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="general.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Introducción a la Ciencia de Datos - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Introducción a la Ciencia de Datos - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="general.html">
+                    Introducción a la Ciencia de Datos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Clases</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Clase 1: Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crispdm.html">Clase 2: CRISP-DM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conocimiento.html">Clase 3: Conocimiento de los datos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Actividades</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="activity-introduction.html">Introducción a la Ciencia de Datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/intro.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Clase 1: Introducción</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes-de-datos">Fuentes de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-datos">Generación de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">Big Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mineria-de-datos">Minería de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">Problemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definiciones">Definiciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jerarquia-del-conocimiento">Jerarquía del conocimiento</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion">Información</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conocimiento">Conocimiento</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ciencia-de-datos">Ciencia de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas">Herramientas</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inteligencia-artificial">Inteligencia Artificial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Minería de datos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodologias-para-proyectos-de-ciencia-de-datos">Metodologías para proyectos de Ciencia de Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proceso-kdd">Proceso KDD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crisp-dm">CRISP-DM</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Problemas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#salud">Salud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transporte-y-logistica">Transporte y logística</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deportes">Deportes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gobierno">Gobierno</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comercio">Comercio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energia">Energía</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ciencia-y-tecnologia">Ciencia y tecnología</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etica-y-ciencia-de-datos">Ética y ciencia de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toma-de-decisiones">Toma de decisiones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacidad-y-confidencialidad">Privacidad y confidencialidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transparencia">Transparencia</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes-adicionales">Fuentes adicionales</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="clase-1-introduccion">
+<h1>Clase 1: Introducción<a class="headerlink" href="#clase-1-introduccion" title="Link to this heading">#</a></h1>
+<p><strong>Primeras ideas sobre la Ciencia de Datos</strong></p>
+<p>Giovanni D. Rottoli, PhD.</p>
+<section id="fuentes-de-datos">
+<h2>Fuentes de datos<a class="headerlink" href="#fuentes-de-datos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>En los últimos 20 años, los datos han acaparado todo aspecto de la vida humana.</p></li>
+<li><p>Se obtienen datos de múltiples fuentes distintas, en grandes cantidades y en formatos diversos.</p></li>
+</ul>
+<p><img alt="sources.png" src="_images/sources.png" /></p>
+</section>
+<section id="generacion-de-datos">
+<h2>Generación de datos<a class="headerlink" href="#generacion-de-datos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>La velocidad con la que se generan los datos ha ido aumentando</p></li>
+<li><p>Se obtienen datos de múltiples fuentes distintas y en formatos de lo más diversos.</p></li>
+</ul>
+<p><img alt="Data Never Sleeps Report 2023: https://www.domo.com/learn/infographic/data-never-sleeps-11" src="_images/velocity.png" /></p>
+</section>
+<section id="big-data">
+<h2>Big Data<a class="headerlink" href="#big-data" title="Link to this heading">#</a></h2>
+<p>El fenómeno Big Data se describe con 3 V:</p>
+<ul class="simple">
+<li><p>Variedad</p></li>
+<li><p>Velocidad</p></li>
+<li><p>Volumen</p></li>
+</ul>
+<p>Estos conceptos son dinámicos.</p>
+<p><img alt="bigdata.png" src="_images/bigdata.png" /></p>
+</section>
+<section id="mineria-de-datos">
+<h2>Minería de datos<a class="headerlink" href="#mineria-de-datos" title="Link to this heading">#</a></h2>
+<p>La minería de datos nos permite extraer conocimiento implícito en los datos.</p>
+<p><img alt="juegaono.png" src="_images/juegaono.png" /></p>
+</section>
+<section id="problemas">
+<h2>Problemas<a class="headerlink" href="#problemas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Son necesarias herramientas eficientes para poder analizar bases de datos de gran volumen en un tiempo aceptable.</p></li>
+<li><p>Son necesarias técnicas para analizar datos de distintos tipos y orígenes.</p></li>
+<li><p>Es necesaria una metodología para abordar el análisis de forma sistematizada.</p></li>
+</ul>
+</section>
+<section id="definiciones">
+<h2>Definiciones<a class="headerlink" href="#definiciones" title="Link to this heading">#</a></h2>
+<p>Los conceptos utilizados en la disciplina varían según los autores.</p>
+<p>Vamos a proponer un conjunto de definiciones para utilizar en este curso.</p>
+<section id="jerarquia-del-conocimiento">
+<h3>Jerarquía del conocimiento<a class="headerlink" href="#jerarquia-del-conocimiento" title="Link to this heading">#</a></h3>
+<p><img alt="piramide.png" src="_images/piramide.png" /></p>
+<section id="datos">
+<h4>Datos<a class="headerlink" href="#datos" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Son observaciones o hechos  discretos y objetivos, que se encuentran desorganizados y necesitan ser procesados.</p></li>
+<li><p>No poseen significado o valor, ya que carecen de contexto e interpretaciones.</p></li>
+</ul>
+</section>
+<section id="informacion">
+<h4>Información<a class="headerlink" href="#informacion" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Se obtiene a partir de datos procesados y contextualizados.</p></li>
+<li><p>La información posee sentido y es relevante para algún propósito.</p></li>
+<li><p>La información posee valor y utilidad para la toma de decisiones accionables.</p></li>
+<li><p>Permite responder preguntas: ¿Quién? ¿Qué? ¿Dónde? ¿Cuántos? ¿Cuándo?</p></li>
+</ul>
+</section>
+<section id="conocimiento">
+<h4>Conocimiento<a class="headerlink" href="#conocimiento" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Es información organizada, contextualizada y estructurada.</p></li>
+<li><p>Sintetiza múltiples fuentes de información.</p></li>
+<li><p>Provee entendimiento, experiencia y aprendizaje acumulado sobre un fenómeno dado.</p></li>
+</ul>
+</section>
+</section>
+<section id="ciencia-de-datos">
+<h3>Ciencia de datos<a class="headerlink" href="#ciencia-de-datos" title="Link to this heading">#</a></h3>
+<p>Disciplina de la informática y de las ciencias computacionales, que brinda a la inteligencia de negocios herramientas para obtener conocimiento no trivial a partir de datos disponibles en repositorios digitales.</p>
+<section id="herramientas">
+<h4>Herramientas<a class="headerlink" href="#herramientas" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Estadísticas: descriptores estadísticos, test de hipótesis, etc.</p></li>
+<li><p>Visualizaciones: organización visual de los datos.</p></li>
+<li><p>Inteligencia Artificial</p></li>
+<li><p>Gestión de proyectos</p></li>
+</ul>
+<p><img alt="Ciencia de datos.png" src="_images/Ciencia_de_datos.png" /></p>
+</section>
+</section>
+<section id="inteligencia-artificial">
+<h3>Inteligencia Artificial<a class="headerlink" href="#inteligencia-artificial" title="Link to this heading">#</a></h3>
+<p>La inteligencia artificial es una disciplina de la informática que se busque desarrollar sistemas que sean capaces de realizar tareas que normalmente requieren inteligencia humana. Por ejemplo, el aprendizaje, el razonamiento y la percepción.</p>
+</section>
+<section id="id1">
+<h3>Minería de datos<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Conjunto de algoritmos de aprendizaje automático (inteligencia artificial) que buscan patrones o regularidades relevantes en conjuntos de datos, obteniendo así conocimiento a partir de los mismos.</p>
+</section>
+</section>
+<section id="metodologias-para-proyectos-de-ciencia-de-datos">
+<h2>Metodologías para proyectos de Ciencia de Datos<a class="headerlink" href="#metodologias-para-proyectos-de-ciencia-de-datos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>La Ciencia de Datos es una disciplina completa</p></li>
+<li><p>Requiere comprender los problemas de negocio y determinar los abordajes necesarios para solucionarlos.</p></li>
+<li><p>Incluye análisis del problema, adquisición y preparación de los datos, selección y aplicación de algoritmos, entre otros.</p></li>
+<li><p>Se requiere administrar los recursos para llevar adelante el proyecto de una forma sistematizada.</p></li>
+</ul>
+<section id="proceso-kdd">
+<h3>Proceso KDD<a class="headerlink" href="#proceso-kdd" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Knowledge Discovery on Databases (Fayyad, 1996)</p></li>
+<li><p>Ciclo de vida: Cascada.</p></li>
+<li><p>Enfocado en los datos y la aplicación de algoritmos.</p></li>
+<li><p>Ignora los aspectos del dominio del problema.</p></li>
+</ul>
+<p><img alt="kdd.png" src="_images/kdd.png" /></p>
+</section>
+<section id="crisp-dm">
+<h3>CRISP-DM<a class="headerlink" href="#crisp-dm" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Cross Industry Standard Process for Data Mining</p></li>
+<li><p>Estructura Jerárquica</p></li>
+<li><p>Ciclo de vida: Iterativo Incremental</p></li>
+<li><p>Retroalimentaciones entre fases</p></li>
+</ul>
+<p><img alt="crispdm.png" src="_images/crispdm.png" /></p>
+</section>
+</section>
+<section id="id2">
+<h2>Problemas<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>La ciencia de datos resulta útil en múltiples escenarios distintos.</p>
+<p>Veamos algunos de ellos:</p>
+<section id="salud">
+<h3>Salud<a class="headerlink" href="#salud" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Soporte al diagnóstico:</p>
+<ul>
+<li><p>identificación de patrones entre enfermedades y síntomas</p></li>
+<li><p>detección de anomalías en imágenes de diagnóstico (radiografías, tomografías, electrocardiogramas, etc.)</p></li>
+</ul>
+</li>
+<li><p>Creación de tratamientos personalizados</p></li>
+<li><p>Diseño de medicamentos</p></li>
+<li><p>Detección de focos de contagio</p></li>
+</ul>
+</section>
+<section id="transporte-y-logistica">
+<h3>Transporte y logística<a class="headerlink" href="#transporte-y-logistica" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Modelo de patrones de tráfico</p></li>
+<li><p>Planificación de servicios de transporte público</p></li>
+<li><p>Optimización de rutas de entrega (Uber eats)</p></li>
+</ul>
+</section>
+<section id="deportes">
+<h3>Deportes<a class="headerlink" href="#deportes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Diseño de estrategias de juego</p></li>
+<li><p>Análisis de métricas de desempeño</p></li>
+<li><p>Creación de planes de entrenamiento personalizados.</p></li>
+</ul>
+</section>
+<section id="gobierno">
+<h3>Gobierno<a class="headerlink" href="#gobierno" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Detección de fraude impositivo</p></li>
+<li><p>Análisis de la opinion ciudadana</p></li>
+<li><p>Reducción de la burocracia</p></li>
+<li><p>Aseguramiento de la identidad</p></li>
+</ul>
+</section>
+<section id="comercio">
+<h3>Comercio<a class="headerlink" href="#comercio" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Creación de publicidad “a medida”.</p></li>
+<li><p>Creación de promociones personalizadas.</p></li>
+<li><p>Creación de perfiles de clientes.</p></li>
+<li><p>Predicción de intereses de los clientes (sistemas recomendadores).</p></li>
+<li><p>Diseño de productos.</p></li>
+<li><p>Identificación de tendencias temporales en las ventas.</p></li>
+</ul>
+</section>
+<section id="energia">
+<h3>Energía<a class="headerlink" href="#energia" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Predicción de demanda.</p></li>
+<li><p>Optimización de generación de energía.</p></li>
+</ul>
+</section>
+<section id="ciencia-y-tecnologia">
+<h3>Ciencia y tecnología<a class="headerlink" href="#ciencia-y-tecnologia" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Detección de cuerpos celestes (Gauss, Método de los mínimos cuadrados)</p></li>
+<li><p>Diseño de nuevos materiales.</p></li>
+<li><p>Diseño de medicamentos</p></li>
+<li><p>Conducción autónoma de vehículos espaciales</p></li>
+<li><p>Descubrimiento de nuevas especies animales / vegetales</p></li>
+<li><p>entre otros!</p></li>
+</ul>
+</section>
+</section>
+<section id="etica-y-ciencia-de-datos">
+<h2>Ética y ciencia de datos<a class="headerlink" href="#etica-y-ciencia-de-datos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Los datos tienen un impacto enorme en nuestra vida diaria, directa o indirectamente.</p></li>
+<li><p>Por este impacto, es menester considerar los aspectos éticos alrededor del uso de estas tecnologías.</p></li>
+<li><p>Veamos casos particulares.</p></li>
+</ul>
+<section id="toma-de-decisiones">
+<h3>Toma de decisiones<a class="headerlink" href="#toma-de-decisiones" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>El conocimiento obtenido brinda una guía para la toma de decisiones.</p></li>
+<li><p>Estas decisiones pueden afectar la vida de las personas</p></li>
+<li><p>Debemos asegurarnos de que el conocimiento sea correcto, los datos no se encuentren sesgados, y las técnicas usadas sean confiables.</p></li>
+<li><p>Se debe evitar utilizar datos sobre raza, género, sexualidad, religión, o cualquier categoría que pueda segregar negativamente.</p></li>
+</ul>
+</section>
+<section id="privacidad-y-confidencialidad">
+<h3>Privacidad y confidencialidad<a class="headerlink" href="#privacidad-y-confidencialidad" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Se deben utilizar datos con el permiso de sus dueños, los mismos usuarios en caso de que sean datos personales.</p></li>
+<li><p>Aún si se consciente el uso de los datos, no significa que estos datos se deban hacer públicos.</p></li>
+<li><p>La seguridad de los datos es clave.</p></li>
+<li><p>En muchos casos, es factible anonimizar los datos para trabajar con ellos sin identificar a quién corresponden.</p></li>
+</ul>
+</section>
+<section id="transparencia">
+<h3>Transparencia<a class="headerlink" href="#transparencia" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Tanto los procesos de recolección, almacenamiento, procesamiento, transformación y modelado de datos deben estar bien documentados.</p></li>
+<li><p>En algunos casos, los modelos deben ser suficientemente explicativos y comprensibles para saber por qué se toman las decisiones que se toman.</p></li>
+</ul>
+<section id="fuentes-adicionales">
+<h4>Fuentes adicionales<a class="headerlink" href="#fuentes-adicionales" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>UNESCO (2022). Recommendation on the Ethics of Artificial Intelligence. ONLINE: <a class="reference external" href="https://unesdoc.unesco.org/ark:/48223/pf0000381137_spa">https://unesdoc.unesco.org/ark:/48223/pf0000381137_spa</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="general.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introducción a la Ciencia de Datos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="crispdm.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Clase 2: CRISP-DM</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes-de-datos">Fuentes de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-datos">Generación de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">Big Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mineria-de-datos">Minería de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas">Problemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definiciones">Definiciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jerarquia-del-conocimiento">Jerarquía del conocimiento</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion">Información</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conocimiento">Conocimiento</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ciencia-de-datos">Ciencia de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas">Herramientas</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inteligencia-artificial">Inteligencia Artificial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Minería de datos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodologias-para-proyectos-de-ciencia-de-datos">Metodologías para proyectos de Ciencia de Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proceso-kdd">Proceso KDD</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crisp-dm">CRISP-DM</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Problemas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#salud">Salud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transporte-y-logistica">Transporte y logística</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deportes">Deportes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gobierno">Gobierno</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comercio">Comercio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energia">Energía</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ciencia-y-tecnologia">Ciencia y tecnología</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etica-y-ciencia-de-datos">Ética y ciencia de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toma-de-decisiones">Toma de decisiones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacidad-y-confidencialidad">Privacidad y confidencialidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transparencia">Transparencia</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fuentes-adicionales">Fuentes adicionales</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Rottoli, Giovanni D.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
