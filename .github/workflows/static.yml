@@ -38,8 +38,8 @@ jobs:
       # Build the book
       - name: Build the book
         run: |
-          jupyter-book build curso_introductorio_de_ciencia_de_datos
-
+          jupyter-book build .
+          
       # Upload the book's HTML as an artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
